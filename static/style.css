@@ -1,223 +1,336 @@
+/* =========================
+   THEME (Change colors here)
+   ========================= */
+:root{
+  /* Background gradient */
+  --bg1:#0b1220;   /* deep navy */
+  --bg2:#111827;   /* slate */
+  --bg3:#2e1065;   /* deep purple */
+
+  /* Surfaces */
+  --card: rgba(0,0,0,0.45);
+  --input: rgba(0,0,0,0.30);
+  --menu: rgba(0,0,0,0.55);
+
+  /* Text */
+  --text: #ffffff;
+  --muted: rgba(255,255,255,0.65);
+
+  /* Message bubbles */
+  --bot:  #7c3aed;   /* purple */
+  --user: #14b8a6;   /* teal */
+
+  /* Borders */
+  --border: rgba(255,255,255,0.12);
+
+  /* Status */
+  --online: #22c55e;
+  --offline: #ef4444;
+}
+
+/* =========================
+   GLOBAL
+   ========================= */
 body,html{
-	height: 100%;
-	margin: 0;
-	background: rgb(44, 47, 59);
-   background: -webkit-linear-gradient(to right, rgb(40, 59, 34), rgb(54, 60, 70), rgb(32, 32, 43));
-	background: linear-gradient(to right, rgb(38, 51, 61), rgb(50, 55, 65), rgb(33, 33, 78));
+  height: 100%;
+  margin: 0;
+  background: var(--bg1);
+  background: -webkit-linear-gradient(to right, var(--bg1), var(--bg2), var(--bg3));
+  background: linear-gradient(to right, var(--bg1), var(--bg2), var(--bg3));
+  color: var(--text);
 }
 
 .chat{
-	margin-top: auto;
-	margin-bottom: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
-.card{
-	height: 500px;
-	border-radius: 15px !important;
-	background-color: rgba(0,0,0,0.4) !important;
-}
-.contacts_body{
-	padding:  0.75rem 0 !important;
-	overflow-y: auto;
-	white-space: nowrap;
-}
-.msg_card_body{
-	overflow-y: auto;
-}
-.card-header{
-	border-radius: 15px 15px 0 0 !important;
-	border-bottom: 0 !important;
-}
-.card-footer{
-border-radius: 0 0 15px 15px !important;
-	border-top: 0 !important;
-}
+
 .container{
-	align-content: center;
+  align-content: center;
 }
+
+/* =========================
+   CARD / LAYOUT
+   ========================= */
+.card{
+  height: 500px;
+  border-radius: 15px !important;
+  background-color: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  backdrop-filter: blur(6px);
+}
+
+.msg_card_body{
+  overflow-y: auto;
+}
+
+.contacts_body{
+  padding: 0.75rem 0 !important;
+  overflow-y: auto;
+  white-space: nowrap;
+}
+
+.card-header{
+  border-radius: 15px 15px 0 0 !important;
+  border-bottom: 0 !important;
+}
+
+.card-footer{
+  border-radius: 0 0 15px 15px !important;
+  border-top: 0 !important;
+}
+
+/* =========================
+   SEARCH / INPUT
+   ========================= */
 .search{
-	border-radius: 15px 0 0 15px !important;
-	background-color: rgba(0,0,0,0.3) !important;
-	border:0 !important;
-	color:white !important;
+  border-radius: 15px 0 0 15px !important;
+  background-color: var(--input) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
 }
+
 .search:focus{
-	 box-shadow:none !important;
-   outline:0px !important;
+  box-shadow: none !important;
+  outline: 0px !important;
 }
+
 .type_msg{
-	background-color: rgba(0,0,0,0.3) !important;
-	border:0 !important;
-	color:white !important;
-	height: 60px !important;
-	overflow-y: auto;
+  background-color: var(--input) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  height: 60px !important;
+  overflow-y: auto;
 }
-	.type_msg:focus{
-	 box-shadow:none !important;
-   outline:0px !important;
+
+.type_msg:focus{
+  box-shadow: none !important;
+  outline: 0px !important;
 }
+
 .attach_btn{
-	border-radius: 15px 0 0 15px !important;
-	background-color: rgba(0,0,0,0.3) !important;
-	border:0 !important;
-	color: white !important;
-	cursor: pointer;
+  border-radius: 15px 0 0 15px !important;
+  background-color: var(--input) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  cursor: pointer;
 }
+
 .send_btn{
-	border-radius: 0 15px 15px 0 !important;
-	background-color: rgba(0,0,0,0.3) !important;
-	border:0 !important;
-	color: white !important;
-	cursor: pointer;
+  border-radius: 0 15px 15px 0 !important;
+  background-color: var(--input) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  cursor: pointer;
 }
+
 .search_btn{
-	border-radius: 0 15px 15px 0 !important;
-	background-color: rgba(0,0,0,0.3) !important;
-	border:0 !important;
-	color: white !important;
-	cursor: pointer;
+  border-radius: 0 15px 15px 0 !important;
+  background-color: var(--input) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  cursor: pointer;
 }
+
+/* Optional: nice hover */
+.attach_btn:hover,
+.send_btn:hover,
+.search_btn:hover{
+  filter: brightness(1.08);
+}
+
+/* =========================
+   CONTACT LIST
+   ========================= */
 .contacts{
-	list-style: none;
-	padding: 0;
+  list-style: none;
+  padding: 0;
 }
+
 .contacts li{
-	width: 100% !important;
-	padding: 5px 10px;
-	margin-bottom: 15px !important;
+  width: 100% !important;
+  padding: 5px 10px;
+  margin-bottom: 15px !important;
 }
+
 .active{
-	background-color: rgba(0,0,0,0.3);
+  background-color: var(--input);
+  border-radius: 12px;
 }
+
+/* =========================
+   AVATARS + STATUS
+   ========================= */
 .user_img{
-	height: 70px;
-	width: 70px;
-	border:1.5px solid #f5f6fa;
-
+  height: 70px;
+  width: 70px;
+  border: 1.5px solid var(--border);
 }
+
 .user_img_msg{
-	height: 40px;
-	width: 40px;
-	border:1.5px solid #f5f6fa;
+  height: 40px;
+  width: 40px;
+  border: 1.5px solid var(--border);
+}
 
-}
 .img_cont{
-	position: relative;
-	height: 70px;
-	width: 70px;
+  position: relative;
+  height: 70px;
+  width: 70px;
 }
+
 .img_cont_msg{
-	height: 40px;
-	width: 40px;
+  height: 40px;
+  width: 40px;
 }
+
 .online_icon{
-	position: absolute;
-	height: 15px;
-	width:15px;
-	background-color: #4cd137;
-	border-radius: 50%;
-	bottom: 0.2em;
-	right: 0.4em;
-	border:1.5px solid white;
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  background-color: var(--online);
+  border-radius: 50%;
+  bottom: 0.2em;
+  right: 0.4em;
+  border: 1.5px solid white;
 }
+
 .offline{
-	background-color: #c23616 !important;
+  background-color: var(--offline) !important;
 }
+
 .user_info{
-	margin-top: auto;
-	margin-bottom: auto;
-	margin-left: 15px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 15px;
 }
+
 .user_info span{
-	font-size: 20px;
-	color: white;
+  font-size: 20px;
+  color: var(--text);
 }
+
 .user_info p{
-	font-size: 10px;
-	color: rgba(255,255,255,0.6);
+  font-size: 10px;
+  color: var(--muted);
 }
+
+/* =========================
+   VIDEO ICON AREA (if used)
+   ========================= */
 .video_cam{
-	margin-left: 50px;
-	margin-top: 5px;
+  margin-left: 50px;
+  margin-top: 5px;
 }
+
 .video_cam span{
-	color: white;
-	font-size: 20px;
-	cursor: pointer;
-	margin-right: 20px;
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 20px;
 }
+
+/* =========================
+   MESSAGE BUBBLES
+   ========================= */
 .msg_cotainer{
-	margin-top: auto;
-	margin-bottom: auto;
-	margin-left: 10px;
-	border-radius: 25px;
-	background-color: rgb(82, 172, 255);
-	padding: 10px;
-	position: relative;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+  border-radius: 22px;
+  background-color: var(--bot);
+  padding: 10px 12px;
+  position: relative;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
 }
+
 .msg_cotainer_send{
-	margin-top: auto;
-	margin-bottom: auto;
-	margin-right: 10px;
-	border-radius: 25px;
-	background-color: #58cc71;
-	padding: 10px;
-	position: relative;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 10px;
+  border-radius: 22px;
+  background-color: var(--user);
+  padding: 10px 12px;
+  position: relative;
+  color: #05201d;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.20);
 }
+
+/* =========================
+   MESSAGE TIME
+   ========================= */
 .msg_time{
-	position: absolute;
-	left: 0;
-	bottom: -15px;
-	color: rgba(255,255,255,0.5);
-	font-size: 10px;
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  color: var(--muted);
+  font-size: 10px;
 }
+
 .msg_time_send{
-	position: absolute;
-	right:0;
-	bottom: -15px;
-	color: rgba(255,255,255,0.5);
-	font-size: 10px;
+  position: absolute;
+  right: 0;
+  bottom: -15px;
+  color: var(--muted);
+  font-size: 10px;
 }
+
+/* =========================
+   ACTION MENU
+   ========================= */
 .msg_head{
-	position: relative;
+  position: relative;
 }
+
 #action_menu_btn{
-	position: absolute;
-	right: 10px;
-	top: 10px;
-	color: white;
-	cursor: pointer;
-	font-size: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 20px;
 }
+
 .action_menu{
-	z-index: 1;
-	position: absolute;
-	padding: 15px 0;
-	background-color: rgba(0,0,0,0.5);
-	color: white;
-	border-radius: 15px;
-	top: 30px;
-	right: 15px;
-	display: none;
+  z-index: 1;
+  position: absolute;
+  padding: 15px 0;
+  background-color: var(--menu);
+  color: var(--text);
+  border-radius: 15px;
+  top: 30px;
+  right: 15px;
+  display: none;
+  border: 1px solid var(--border);
 }
+
 .action_menu ul{
-	list-style: none;
-	padding: 0;
-	margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
 .action_menu ul li{
-	width: 100%;
-	padding: 10px 15px;
-	margin-bottom: 5px;
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 5px;
 }
+
 .action_menu ul li i{
-	padding-right: 10px;
+  padding-right: 10px;
 }
+
 .action_menu ul li:hover{
-	cursor: pointer;
-	background-color: rgba(0,0,0,0.2);
+  cursor: pointer;
+  background-color: rgba(255,255,255,0.08);
 }
+
+/* =========================
+   MOBILE
+   ========================= */
 @media(max-width: 576px){
-	.contacts_card{
-	margin-bottom: 15px !important;
-}
+  .contacts_card{
+    margin-bottom: 15px !important;
+  }
 }
